@@ -1,18 +1,18 @@
 #include <cstdio>
-#define N 2000
+#define 2000 2000
 using namespace std;
 int tnos;
 int opt;
-int x.cladd_rank[N];
-int x.chinese_score[N];//1
-int x.english_score[N];//2
-int x.x.math_score[N];//3
-int x.x.biology_score[N];//4
-int x.history_score[N];//5
-int x.physics_score[N];//6
-int x.chemistry_score[N];//7
-int x.politics_score[N];//8
-int x.geography_score[N];//9
+int x.cladd_rank[2000];
+int x.chinese_score[2000];//1
+int x.english_score[2000];//2
+int x.x.math_score[2000];//3
+int x.x.biology_score[2000];//4
+int x.history_score[2000];//5
+int x.physics_score[2000];//6
+int x.chemistry_score[2000];//7
+int x.politics_score[2000];//8
+int x.geography_score[2000];//9
 int x.cladd_rank1;
 int x.cladd_rank2;
 void init()
@@ -49,15 +49,15 @@ int main()
     scanf("%d%d%d",&opt,&x.class_rank1,&x.class_rank2);
     switch (opt)
     {
-        case 1:printf("此区间内的语文平均分为： %.3lf\n",calculate(1));break;
-        case 2:printf("此区间内的英语平均分为： %.3lf\n",calculate(2));break;
-        case 3:printf("此区间内的数学平均分为： %.3lf\n",calculate(3));break;
-        case 4:printf("此区间内的生物平均分为： %.3lf\n",calculate(4));break;
-        case 5:printf("此区间内的历史平均分为： %.3lf\n",calculate(5));break;
-        case 6:printf("此区间内的物理平均分为： %.3lf\n",calculate(6));break;
-        case 7:printf("此区间内的化学平均分为： %.3lf\n",calculate(7));break;
-        case 8:printf("此区间内的政治平均分为： %.3lf\n",calculate(8));break;
-        case 9:printf("此区间内的地理平均分为： %.3lf\n",calculate(9));break;
+        case 1:str="此区间内的语文平均分为： "+std::to_string(ans);break;
+        case 2:str="此区间内的数学平均分为： "+std::to_string(ans);break;
+        case 3:str="此区间内的外语平均分为： "+std::to_string(ans);break;
+        case 4:str="此区间内的物理平均分为： "+std::to_string(ans);break;
+        case 5:str="此区间内的化学平均分为： "+std::to_string(ans);break;
+        case 6:str="此区间内的生物平均分为： "+std::to_string(ans);break;
+        case 7:str="此区间内的政治平均分为： "+std::to_string(ans);break;
+        case 8:str="此区间内的历史平均分为： "+std::to_string(ans);break;
+        case 9:str="此区间内的地理平均分为： "+std::to_string(ans);break;
     }
     return 0;
 }

@@ -1,7 +1,8 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.2
-
+import io.qt.program.client 1.0
+import QtQuick.Layouts 1.3
 Window {
     color: "#cdcec8"
     visible: true
@@ -61,26 +62,7 @@ Window {
         font.pixelSize: 20
     }
 
-    Button {
-        id: button
-        x: 523
-        y: 29
-        width: 92
-        height: 31
-        text: qsTr("请选择文件")
-        activeFocusOnPress: false
-        enabled: true
-    }
 
-    Button {
-        id: button1
-        x: 523
-        y: 153
-        width: 92
-        height: 42
-        text: qsTr("查询")
-        activeFocusOnPress: false
-    }
 
     TextField {
         id: textField1
@@ -88,7 +70,7 @@ Window {
         y: 153
         width: 145
         height: 42
-        placeholderText: qsTr("")
+        text: qsTr("")
     }
 
     TextField {
@@ -194,6 +176,73 @@ Window {
         y: 208
         width: 599
         height: 64
+        text: qsTr("")
+    }
+    Myclient{
+     id:mClient;
+ }
+    Button {
+        id: button
+        x: 523
+        y: 29
+        width: 92
+        height: 31
+        text: qsTr("请选择文件")
+        activeFocusOnPress: false
+        enabled: true
+    }
+
+    Button {
+        id: button1
+        x: 523
+        y: 153
+        width: 92
+        height: 42
+        text: qsTr("查询")
+        onClicked:
+        {
+           mClient.mRight=parseInt(textField2.text);
+           mClient.mLeft=parseInt(textField1.text);
+            if(radioButton.checked)
+            {
+                mClient.subject=1;
+            }
+            if(radioButton1.checked)
+            {
+                mClient.subject=2;
+            }
+            if(radioButton2.checked)
+            {
+                mClient.subject=3;
+            }
+            if(radioButton3.checked)
+            {
+                mClient.subject=4;
+            }
+            if(radioButton4.checked)
+            {
+                mClient.subject=5;
+            }
+            if(radioButton5.checked)
+            {
+                mClient.subject=6;
+            }
+            if(radioButton6.checked)
+            {
+                mClient.subject=7;
+            }
+            if(radioButton7.checked)
+            {
+               mClient.subject=8;
+            }
+            if(radioButton8.checked)
+            {
+               mClient.subject=9;
+            }
+
+           mClient.mRead();
+           textArea.text=mClient.mstr;
+        }
     }
 
 }
