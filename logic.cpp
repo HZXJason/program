@@ -3,50 +3,50 @@
 using namespace std;
 int tnos;
 int opt;
-int class_rank[N];
-int chinese_score[N];//1
-int english_score[N];//2
-int math_score[N];//3
-int biology_score[N];//4
-int history_score[N];//5
-int physics_score[N];//6
-int chemistry_score[N];//7
-int politics_score[N];//8
-int geography_score[N];//9
-int class_rank1;
-int class_rank2;
+int x.cladd_rank[N];
+int x.chinese_score[N];//1
+int x.english_score[N];//2
+int x.x.math_score[N];//3
+int x.x.biology_score[N];//4
+int x.history_score[N];//5
+int x.physics_score[N];//6
+int x.chemistry_score[N];//7
+int x.politics_score[N];//8
+int x.geography_score[N];//9
+int x.cladd_rank1;
+int x.cladd_rank2;
 void init()
 {
-    for(int i=1;i<=tnos;i++)scanf("%d",&chinese_score[i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&english_score[i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&math_score[N][i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&biology_score[i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&history_score[i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&physics_score[i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&chemistry_score[i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&politics_score[i]);
-    for(int i=1;i<=tnos;i++)scanf("%d",&geography_score[i]);
+    for(int i=1;i<=tnos;i++) x.chinese_score[i]=json.value("Column1").toInt();
+    for(int i=1;i<=tnos;i++) x.math_score[i]=json.value("Column2").toInt();
+    for(int i=1;i<=tnos;i++) x.english_score[i]=json.value("Column3").toInt();
+    for(int i=1;i<=tnos;i++) x.physics_score[i]=json.value("Column4").toInt();
+    for(int i=1;i<=tnos;i++) x.chemistry_score[i]=json.value("Column5").toInt();
+    for(int i=1;i<=tnos;i++) x.biology_score[i]=json.value("Column6").toInt();
+    for(int i=1;i<=tnos;i++) x.politics_score[i]=json.value("Column7").toInt();
+    for(int i=1;i<=tnos;i++) x.history_score[i]=json.value("Column8").toInt();
+    for(int i=1;i<=tnos;i++) x.geography_score[i]=json.value("Column9").toInt();
 }
 double calculate(int op)
 {
     double sum,cnt;
-    if(op==1) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=chinese_score[i],cnt++;}
-    if(op==2) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=english_score[i],cnt++;}
-    if(op==3) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=math_score[i],cnt++;}
-    if(op==4) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=biology_score[i],cnt++;}
-    if(op==5) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=history_score[i],cnt++;}
-    if(op==6) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=physics_score[i],cnt++;}
-    if(op==7) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=chemistry_score[i],cnt++;}
-    if(op==8) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=politics_score[i],cnt++;}
-    if(op==9) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=geography_score[i],cnt++;}
+    if(op==1) for(int i=1;i<=tnos;i++) {if(x.cladd_rank[i]>=x.cladd_rank1&&x.cladd_rank[i]<=x.cladd_rank2) sum+=x.chinese_score[i],cnt++;}
+    if(op==2) for(int i=1;i<=tnos;i++) {if(x.cladd_rank[i]>=x.cladd_rank1&&x.cladd_rank[i]<=x.cladd_rank2) sum+=x.english_score[i],cnt++;}
+    if(op==3) for(int i=1;i<=tnos;i++) {if(x.cladd_rank[i]>=x.cladd_rank1&&x.cladd_rank[i]<=x.cladd_rank2) sum+=x.math_score[i],cnt++;}
+    if(op==4) for(int i=1;i<=tnos;i++) {if(x.class_rank[i]>=x.class_rank1&&x.class_rank[i]<=x.class_rank2) sum+=x.biology_score[i],cnt++;}
+    if(op==5) for(int i=1;i<=tnos;i++) {if(x.class_rank[i]>=x.class_rank1&&x.class_rank[i]<=x.class_rank2) sum+=x.history_score[i],cnt++;}
+    if(op==6) for(int i=1;i<=tnos;i++) {if(x.class_rank[i]>=x.class_rank1&&x.class_rank[i]<=x.class_rank2) sum+=x.physics_score[i],cnt++;}
+    if(op==7) for(int i=1;i<=tnos;i++) {if(x.class_rank[i]>=x.class_rank1&&x.class_rank[i]<=x.class_rank2) sum+=x.chemistry_score[i],cnt++;}
+    if(op==8) for(int i=1;i<=tnos;i++) {if(x.class_rank[i]>=x.class_rank1&&x.class_rank[i]<=x.class_rank2) sum+=x.politics_score[i],cnt++;}
+    if(op==9) for(int i=1;i<=tnos;i++) {if(x.class_rank[i]>=x.class_rank1&&x.class_rank[i]<=x.class_rank2) sum+=x.geography_score[i],cnt++;}
     return sum/cnt;
 }
 int main()
 {
     scanf("%d",&tnos);
     init();
-    for(itn i=1;i<=tnos;i++)scanf("%d",&chinese_score[i]);
-    scanf("%d%d%d",&opt,&class_rank1,&class_rank2);
+    for(itn i=1;i<=tnos;i++)scanf("%d",&x.chinese_score[i]);
+    scanf("%d%d%d",&opt,&x.class_rank1,&x.class_rank2);
     switch (opt)
     {
         case 1:printf("此区间内的语文平均分为： %.3lf\n",calculate(1));break;

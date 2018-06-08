@@ -7,7 +7,7 @@ Window {
     visible: true
     title: qsTr("Score Query System")
     width: 650
-    height: 250
+    height: 300
 
     Text {
         id: text1
@@ -88,7 +88,7 @@ Window {
         y: 153
         width: 145
         height: 42
-        placeholderText: qsTr("Text Field")
+        placeholderText: qsTr("")
     }
 
     TextField {
@@ -97,7 +97,7 @@ Window {
         y: 153
         width: 143
         height: 42
-        placeholderText: qsTr("Text Field")
+        placeholderText: qsTr("")
     }
 
     TextField {
@@ -106,7 +106,9 @@ Window {
         y: 29
         width: 341
         height: 31
-        placeholderText: qsTr("Text Field")
+        font.family: "Courier"
+        echoMode: 3
+        placeholderText: qsTr("")
     }
     ExclusiveGroup{
 
@@ -184,6 +186,14 @@ Window {
         y: 126
         text: qsTr("地理")
         exclusiveGroup: mos;
+    }
+
+    TextArea {
+        id: textArea
+        x: 16
+        y: 208
+        width: 599
+        height: 64
     }
 
 }
