@@ -18,30 +18,32 @@ public:
     int tnos;
     int opt;
     int class_rank[2000];
-    int chinese_score[2000];//1
-    int english_score[2000];//2
-    int math_score[2000];//3
-    int biology_score[2000];//4
-    int history_score[2000];//5
-    int physics_score[2000];//6
-    int chemistry_score[2000];//7
-    int politics_score[2000];//8
-    int geography_score[2000];//9
+    int id[2000];
+        double chinese_score[2000];//1
+        double english_score[2000];//3
+        double math_score[2000];//2
+        double biology_score[2000];//6
+        double history_score[2000];//5
+        double physics_score[2000];//8
+        double chemistry_score[2000];//5
+        double politics_score[2000];//7
+        double geography_score[2000];//9
+
 
     int class_rank1;
     int class_rank2;
     double calculate(int op)
     {
         double sum,cnt;
-        if(op==1) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=chinese_score[i],cnt++;}
-        if(op==2) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=english_score[i],cnt++;}
-        if(op==3) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=math_score[i],cnt++;}
-        if(op==4) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=biology_score[i],cnt++;}
-        if(op==5) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=history_score[i],cnt++;}
-        if(op==6) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=physics_score[i],cnt++;}
-        if(op==7) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=chemistry_score[i],cnt++;}
-        if(op==8) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=politics_score[i],cnt++;}
-        if(op==9) for(int i=1;i<=tnos;i++) {if(class_rank[i]>=class_rank1&&class_rank[i]<=class_rank2) sum+=geography_score[i],cnt++;}
+        if(op==1) for(int i=class_rank1-1;i<class_rank2;i++) {sum+=chinese_score[i],cnt++;}
+        if(op==2) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=math_score[i],cnt++;}
+        if(op==3) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=english_score[i],cnt++;}
+        if(op==4) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=physics_score[i],cnt++;}
+        if(op==5) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=chemistry_score[i],cnt++;}
+        if(op==6) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=biology_score[i],cnt++;}
+        if(op==7) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=politics_score[i],cnt++;}
+        if(op==8) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=history_score[i],cnt++;}
+        if(op==9) for(int i=class_rank1-1;i<class_rank2;i++)  {sum+=geography_score[i],cnt++;}
         return sum/cnt;
     }
 };
@@ -52,12 +54,13 @@ class client:public QObject
     Q_PROPERTY(int mLeft READ getmLeft WRITE setmLeft )
     Q_PROPERTY(int subject READ getsubject WRITE setsubject )
     Q_PROPERTY(QString mstr READ getmstr WRITE setmstr )
+     Q_PROPERTY(QString mPath READ getmPath WRITE setmPath )
 public:
-    int ans;
+    double ans;
     int mLeft;
     int mRight;
     int subject;
-    QString  mstr;
+    QString  mstr,mPath;
     client(){}
     void setmRight(int x)
     {
@@ -72,6 +75,8 @@ public:
     Q_INVOKABLE void mRead();
     QString getmstr(){return mstr;}
     void setmstr (QString x) {mstr=x;}
+    QString getmPath(){return mPath;}
+    void setmPath (QString x) {mPath=x;}
     //Q_INVOKABLE void mPrint();
 };
 #endif // PROGRAM_H

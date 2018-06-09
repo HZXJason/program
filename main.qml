@@ -89,7 +89,6 @@ Window {
         width: 341
         height: 31
         font.family: "Courier"
-        echoMode: 3
         placeholderText: qsTr("")
     }
     ExclusiveGroup{
@@ -187,9 +186,12 @@ Window {
         y: 29
         width: 92
         height: 31
-        text: qsTr("请选择文件")
-        activeFocusOnPress: false
-        enabled: true
+        text: qsTr("完成")
+        onClicked:
+        {
+            mClient.mPath=textField.text;
+
+        }
     }
 
     Button {

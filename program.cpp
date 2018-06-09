@@ -8,43 +8,50 @@
 
 void client::mRead()
 {
-    QDir dir("C:/Users/THINK/Documents/program/program-master");
+    QDir dir(mPath);
     QFile file(dir.filePath("cc.json"));
     file.open(QIODevice::ReadOnly | QIODevice::Text);
     QString val=file.readAll();
     file.close();
+    std::cout<<1;
     QJsonDocument d=QJsonDocument::fromJson(val.toUtf8());
     QJsonArray array=d.array();
     mScore x;
     for(int i=mLeft-1;i<mRight;i++)
     {
         QJsonObject json=array.at(i).toObject();
-        x.chinese_score[i]=json.value("Column1").toInt();
-        x.math_score[i]=json.value("Column2").toInt();
-        x.english_score[i]=json.value("Column3").toInt();
-        x.physics_score[i]=json.value("Column4").toInt();
-        x.chemistry_score[i]=json.value("Column5").toInt();
-        x.biology_score[i]=json.value("Column6").toInt();
-        x.politics_score[i]=json.value("Column7").toInt();
-        x.history_score[i]=json.value("Column8").toInt();
-        x.geography_score[i]=json.value("Column9").toInt();
+        x.chinese_score[i]=json.value("Column2").toDouble(); std::cerr<<x.chinese_score[i]<<" ";
+        x.math_score[i]=json.value("Column3").toDouble(); std::cerr<<x.math_score[i]<<" ";
+        x.english_score[i]=json.value("Column4").toDouble(); std::cerr<<x.english_score[i]<<" ";
+        x.physics_score[i]=json.value("Column5").toDouble(); std::cerr<<x.physics_score[i]<<" ";
+        x.chemistry_score[i]=json.value("Column6").toDouble(); std::cerr<<x.chemistry_score[i]<<" ";
+        x.biology_score[i]=json.value("Column7").toDouble(); std::cerr<<x.biology_score[i]<<" ";
+        x.politics_score[i]=json.value("Column8").toDouble(); std::cerr<<x.politics_score[i]<<" ";
+        x.history_score[i]=json.value("Column9").toDouble(); std::cerr<<x.history_score[i]<<" ";
+        x.geography_score[i]=json.value("Column10").toDouble(); std::cerr<<x.geography_score[i]<<" ";
+        x.class_rank[i]=json.value("Column12").toDouble(); std::cerr<<x.class_rank[i]<<" ";
 
     }
+    x.class_rank1=mLeft;
+    x.class_rank2=mRight;
     ans=x.calculate(subject);
     std::string str;
+    std::cerr<<mLeft<<" ";
+    std::cerr<<mRight<<" ";
     switch(subject)
     {
-       case 1:str="此区间内的语文平均分为： "+std::to_string(ans);break;
-       case 2:str="此区间内的数学平均分为： "+std::to_string(ans);break;
-       case 3:str="此区间内的外语平均分为： "+std::to_string(ans);break;
-       case 4:str="此区间内的物理平均分为： "+std::to_string(ans);break;
-       case 5:str="此区间内的化学平均分为： "+std::to_string(ans);break;
-       case 6:str="此区间内的生物平均分为： "+std::to_string(ans);break;
-       case 7:str="此区间内的政治平均分为： "+std::to_string(ans);break;
-       case 8:str="此区间内的历史平均分为： "+std::to_string(ans);break;
-       case 9:str="此区间内的地理平均分为： "+std::to_string(ans);break;
+          case 1:str=" "+std::to_string(ans);break;
+          case 2:str=" "+std::to_string(ans);break;
+          case 3:str=" "+std::to_string(ans);break;
+          case 4:str=" "+std::to_string(ans);break;
+          case 5:str=" "+std::to_string(ans);break;
+          case 6:str=" "+std::to_string(ans);break;
+          case 7:str=" "+std::to_string(ans);break;
+          case 8:str=" "+std::to_string(ans);break;
+          case 9:str=" "+std::to_string(ans);break;
+
     }
     mstr=QString(QString::fromLocal8Bit(str.c_str()));
-    std::cout<<str;
+    std::cerr<<str;
     //qDebug(mstr);
 }
